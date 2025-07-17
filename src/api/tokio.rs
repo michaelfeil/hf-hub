@@ -401,6 +401,8 @@ impl ApiBuilder {
 }
 
 #[derive(Debug)]
+
+/// url metadata
 pub struct Metadata {
     commit_hash: String,
     etag: String,
@@ -496,6 +498,7 @@ impl Api {
         &self.client
     }
 
+    /// Get metadata about a url
     pub async fn metadata(&self, url: &str) -> Result<Metadata, ApiError> {
         let response = self
             .relative_redirect_client
